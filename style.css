@@ -1,0 +1,69 @@
+htlm, body{
+  display: flex:block;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+
+  font-family: Optima;
+}
+
+.wrapper{
+  background-color: LightCyan;
+
+  mad-width: 50%;
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+}
+
+.name{
+  font-family: Optima;
+  margin-bottom: 2px;
+}
+
+.links{
+  list-style: none;
+  padding-left: 0px;
+  font-size: 18px;
+}
+
+.links li{
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.links a{
+  text-decoration: none;
+  padding: 4px;
+}
+
+.links a:hover{
+  background-color: rgba(255, 0, 0, 1);
+}
+.left, .right{
+  background-color: lightblue;
+
+  margin: 5px;
+  max-width: 50%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.body {
+  background: linear-gradient(to bottom, rgba(231, 240, 245, 1) 0%, rgba(170, 221, 235, 1) 100%);
+}
+
+.left{
+  align-items: center;
+  justify-content: center;
+}
+
+
+.flower{
+  border-radius: 50%;
+}
