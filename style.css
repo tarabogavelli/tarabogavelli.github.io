@@ -74,6 +74,11 @@ htlm, body{
   justify-content: center;
 }
 
+.right{
+  align-items: center;
+  justify-content: center;
+}
+
 
 .flower{
   border-radius: 50%;
