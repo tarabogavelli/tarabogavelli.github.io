@@ -1,0 +1,196 @@
+
+<html>
+<head>
+  <title>Tara Bogavelli</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+  <body>
+    <div class="wrapper">
+
+      <div class="left">
+        <img class="flower" src="flower.JPG" width="300" height="300"/>
+        <h1 class="name">Tara Bogavelli</h1>
+        <h4
+            class="subtitle">CS @ Barnard College, Columbia University
+
+        </h4>
+        <p class="bio">
+            student, reader, amateur embroiderer
+          </p>
+          <ul class="links">
+            <li>
+                <a class="button1" href="https://github.com/tarabogavelli">Github</a>
+            </li>
+            <li>
+                <a class="button2" href="https://www.linkedin.com/in/tara-bogavelli">LinkedIn</a>
+            </li>
+            <li>
+                <a class="button3" href="https://www.goodreads.com/user/show/113388981-tara">Goodreads</a>
+            </li>
+  
+          </ul>
+      </div>
+
+      <div class="right">
+       
+
+        <div class="projects">
+            <h1 class="project_title">Projects</h1>
+            
+            <div class="project1">
+              <h4>ML Image Classification Application (Professional)</h4>
+              <p> Built a Tensorflow CNN image classification model that classifies screenshots of websites on company's network based on application type and security requirements, achieved 98% accuracy on new screenshots. Deployed interactive Django web app to visualize and store classification results.</p>
+            </div>
+            <div class="project2">
+              <h4>Goodreads Automation Web Application (Personal)</h4>
+              <p>Created a web application that automates goodreads updates, allows user to add list of books to their Want to Read Shelf or retrieve recommendations and formats in a table. Allows user to put in address to find libraries nearest to them via Google Maps API.</p>
+            </div>
+            <div class="project3">
+              <h4>2048 Game Solver (Academic)</h4>
+              <p>Created a 2048 solver in Python that uses adversarial search (expectiminimax algorithm with alpha-beta pruning) and
+                several game specific heuristics to achieve a full score 80% of the time while ensuring a move time limit of 0.2 seconds.</p>
+            </div>
+            <div class="project4">
+              <h4>Bittle Robot Reinforcement Learning (Professional)</h4>
+              <p>Used reinforcement learning (RL) to develop locomotion controllers for a low-cost quadruped robot to learn robust walking.</p>
+            </div>
+
+            <a class="button4" href="mailto:tb2913@barnard.edu">Email me!</a>
+
+
+            <!-- <div class="structured_editor">
+            <h4 >Structured Editor for Linear Temporal Logic (Interactive)</h4>
+            <p style="color:white">Click "Generate" to make the first dropdown appear, and then once you have selected options in all the available dropdown menus click "Submit"</p>
+                <div id="container"></div>
+                <br>
+                <div>
+                <button id="generate">Generate</button>
+                </div>
+                <div>
+                <button id="submit">Submit</button>
+                </div>
+            </div>  -->
+
+        </div>
+
+    </div>
+
+    </div>
+
+<script>num_dropdowns = 0;
+    var allOptions = [" ", "P", "!P", "P1 OR P2", "XP", "FP", "GP", "P1 U P2"];
+    
+    document.getElementById('generate').onclick = function() 
+    {
+      var vals = [" ", "P", "!P", "P1 OR P2", "XP", "FP", "GP", "P1 U P2"];
+      
+      addHelp(vals, " ", 0);
+    
+    }
+    
+    function addHelp(listOfValues,text, parentNum)
+    {
+    
+     
+        let vals = listOfValues;
+      var select = document.createElement("select");
+      num_dropdowns++;
+      select.name = "dropdown" + num_dropdowns;
+      select.id = "dropdown" + num_dropdowns;
+              
+    
+      for (const val of vals) {
+        var option = document.createElement("option");
+        option.value = val;
+        option.text = val.charAt(0).toUpperCase() + val.slice(1);
+        select.appendChild(option);
+      }
+    
+      var label = document.createElement("label");
+    
+      label.innerHTML = text;
+      label.htmlFor = "sentence";
+    
+      label.appendChild(select);
+      
+      console.log(label.value);
+      
+      
+      if (document.getElementById("dropdown" + parentNum) != null) {  
+          document.getElementById("container").insertBefore(label, document.getElementById("dropdown" + parentNum).parentNode);
+            document.getElementById("dropdown" + parentNum).remove();
+      }
+      else {
+          document.getElementById("container").appendChild(label);
+      }
+      
+    }
+    
+    function printCounterAndDropdownNumbers()
+    {
+        console.log("counter: ");
+      console.log(counter);
+      console.log("num_dropdowns: ");
+      console.log(num_dropdowns);
+    }
+    
+    // SUBMIT FUNCTION
+    var counter = 1;
+    
+    document.getElementById('submit').onclick = function()
+    {
+        for (; counter <= num_dropdowns; counter++)
+      {
+          var currentDropdownValue = document.getElementById("dropdown" + counter).value;
+        
+          if (currentDropdownValue == " ")
+        {
+            break;
+        }
+          if (currentDropdownValue == "P")
+          {
+            addHelp([" ", "a", "b", "c"], " ", counter);
+          printCounterAndDropdownNumbers();
+    
+          }
+        
+        else if (currentDropdownValue == "!P")
+        {
+            addHelp(allOptions, "!", counter);
+    
+        }
+        
+        else if (currentDropdownValue == "P1 OR P2")
+        {
+            addHelp(allOptions, " ", counter);
+          addHelp(allOptions, " OR ", counter);
+        }
+        
+        
+        else if (currentDropdownValue == "XP")
+        {
+          addHelp(allOptions, "X ", counter);
+        }
+        
+        else if (currentDropdownValue == "FP")
+        {
+          addHelp(allOptions, "F ", counter);
+        }
+        
+        else if (currentDropdownValue == "GP")
+        {
+          addHelp(allOptions, "G ", counter);
+        }
+        
+        else if (currentDropdownValue == "P1 U P2")
+        {
+            addHelp(allOptions, " ", counter);
+          addHelp(allOptions, "U ", counter);
+        }
+        
+     
+      }
+    
+    }</script>
+  </body>
+</html>
